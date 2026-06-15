@@ -1,0 +1,72 @@
+{
+  "name": "cortex-plugin-sentry",
+  "version": "1.0.0",
+  "description": "Triage error groups, analyze stack traces, suggest fixes",
+  "kind": "esm",
+  "entryPoint": "mod.ts",
+  "runtime": "deno",
+  "author": "CortexPrism",
+  "license": "MIT",
+  "repository": "https://github.com/CortexPrism/cortex-plugin-sentry",
+  "capabilities": [
+    "tools",
+    "network:fetch"
+  ],
+  "tools": [
+    {
+      "name": "sentry_list_issues",
+      "description": "List error issues",
+      "params": [
+        { "name": "project", "type": "string", "description": "Sentry project slug", "required": true },
+        { "name": "status", "type": "string", "description": "Issue status filter", "required": false },
+        { "name": "limit", "type": "number", "description": "Max issues to return", "required": false },
+        { "name": "environment", "type": "string", "description": "Environment filter", "required": false }
+      ]
+    },
+    {
+      "name": "sentry_get_issue",
+      "description": "Get issue details",
+      "params": [
+        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+      ]
+    },
+    {
+      "name": "sentry_analyze_stacktrace",
+      "description": "Analyze stack trace",
+      "params": [
+        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+      ]
+    },
+    {
+      "name": "sentry_suggest_fix",
+      "description": "Suggest fix for error",
+      "params": [
+        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+      ]
+    },
+    {
+      "name": "sentry_create_github_issue",
+      "description": "Create GitHub issue from Sentry error",
+      "params": [
+        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true },
+        { "name": "repo", "type": "string", "description": "GitHub repository (owner/repo)", "required": true }
+      ]
+    }
+  ],
+  "ui": {
+    "section": "Sentry",
+    "fields": [
+      { "key": "sentryAuthToken", "label": "Auth Token", "type": "secret", "description": "Sentry auth token", "required": true },
+      { "key": "sentryOrg", "label": "Organization", "type": "text", "description": "Sentry organization slug", "required": true },
+      { "key": "sentryDefaultProject", "label": "Default Project", "type": "text", "description": "Default project slug" }
+    ]
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "cortex": ">=1.0.0"
+  },
+  "aiDisclosure": {
+    "tools": ["Claude Code (Anthropic)"],
+    "humanReview": true
+  }
+}
