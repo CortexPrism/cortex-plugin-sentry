@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-sentry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Triage error groups, analyze stack traces, suggest fixes",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -17,10 +17,30 @@
       "name": "sentry_list_issues",
       "description": "List error issues",
       "params": [
-        { "name": "project", "type": "string", "description": "Sentry project slug", "required": true },
-        { "name": "status", "type": "string", "description": "Issue status filter", "required": false },
-        { "name": "limit", "type": "number", "description": "Max issues to return", "required": false },
-        { "name": "environment", "type": "string", "description": "Environment filter", "required": false }
+        {
+          "name": "project",
+          "type": "string",
+          "description": "Sentry project slug",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Issue status filter",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "description": "Max issues to return",
+          "required": false
+        },
+        {
+          "name": "environment",
+          "type": "string",
+          "description": "Environment filter",
+          "required": false
+        }
       ]
     },
     {
@@ -48,17 +68,44 @@
       "name": "sentry_create_github_issue",
       "description": "Create GitHub issue from Sentry error",
       "params": [
-        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true },
-        { "name": "repo", "type": "string", "description": "GitHub repository (owner/repo)", "required": true }
+        {
+          "name": "issue_id",
+          "type": "string",
+          "description": "Sentry issue ID",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "description": "GitHub repository (owner/repo)",
+          "required": true
+        }
       ]
     }
   ],
   "ui": {
     "section": "Sentry",
     "fields": [
-      { "key": "sentryAuthToken", "label": "Auth Token", "type": "secret", "description": "Sentry auth token", "required": true },
-      { "key": "sentryOrg", "label": "Organization", "type": "text", "description": "Sentry organization slug", "required": true },
-      { "key": "sentryDefaultProject", "label": "Default Project", "type": "text", "description": "Default project slug" }
+      {
+        "key": "sentryAuthToken",
+        "label": "Auth Token",
+        "type": "secret",
+        "description": "Sentry auth token",
+        "required": true
+      },
+      {
+        "key": "sentryOrg",
+        "label": "Organization",
+        "type": "text",
+        "description": "Sentry organization slug",
+        "required": true
+      },
+      {
+        "key": "sentryDefaultProject",
+        "label": "Default Project",
+        "type": "text",
+        "description": "Default project slug"
+      }
     ]
   },
   "dependencies": {},

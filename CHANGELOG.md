@@ -2,14 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.1] — 2026-06-17
 
 ### Added
+
 - Initial project setup
 
 ## [1.0.0] — 2026-06-15
 
 ### Added
+
 - Initial release of cortex-plugin-sentry
 - `sentry_list_issues` — List error issues
 - `sentry_get_issue` — Get issue details
