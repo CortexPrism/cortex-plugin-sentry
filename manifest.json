@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-sentry",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Triage error groups, analyze stack traces, suggest fixes",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -47,21 +47,36 @@
       "name": "sentry_get_issue",
       "description": "Get issue details",
       "params": [
-        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+        {
+          "name": "issue_id",
+          "type": "string",
+          "description": "Sentry issue ID",
+          "required": true
+        }
       ]
     },
     {
       "name": "sentry_analyze_stacktrace",
       "description": "Analyze stack trace",
       "params": [
-        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+        {
+          "name": "issue_id",
+          "type": "string",
+          "description": "Sentry issue ID",
+          "required": true
+        }
       ]
     },
     {
       "name": "sentry_suggest_fix",
       "description": "Suggest fix for error",
       "params": [
-        { "name": "issue_id", "type": "string", "description": "Sentry issue ID", "required": true }
+        {
+          "name": "issue_id",
+          "type": "string",
+          "description": "Sentry issue ID",
+          "required": true
+        }
       ]
     },
     {
@@ -84,27 +99,31 @@
     }
   ],
   "ui": {
-    "section": "Sentry",
-    "fields": [
+    "settings": [
       {
-        "key": "sentryAuthToken",
-        "label": "Auth Token",
-        "type": "secret",
-        "description": "Sentry auth token",
-        "required": true
-      },
-      {
-        "key": "sentryOrg",
-        "label": "Organization",
-        "type": "text",
-        "description": "Sentry organization slug",
-        "required": true
-      },
-      {
-        "key": "sentryDefaultProject",
-        "label": "Default Project",
-        "type": "text",
-        "description": "Default project slug"
+        "section": "Sentry",
+        "fields": [
+          {
+            "key": "sentryAuthToken",
+            "label": "Auth Token",
+            "type": "secret",
+            "description": "Sentry auth token",
+            "required": true
+          },
+          {
+            "key": "sentryOrg",
+            "label": "Organization",
+            "type": "text",
+            "description": "Sentry organization slug",
+            "required": true
+          },
+          {
+            "key": "sentryDefaultProject",
+            "label": "Default Project",
+            "type": "text",
+            "description": "Default project slug"
+          }
+        ]
       }
     ]
   },
@@ -113,7 +132,10 @@
     "cortex": ">=1.0.0"
   },
   "aiDisclosure": {
-    "tools": ["Claude Code (Anthropic)"],
+    "tools": [
+      "Claude Code (Anthropic)"
+    ],
     "humanReview": true
-  }
+  },
+  "homepage": "https://github.com/CortexPrism/cortex-plugin-sentry"
 }
