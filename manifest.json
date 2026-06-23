@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-sentry",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Triage error groups, analyze stack traces, suggest fixes",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -129,7 +129,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "cortex": ">=1.0.0"
+    "cortex": ">=0.51.0"
   },
   "aiDisclosure": {
     "tools": [
